@@ -1,0 +1,32 @@
+.Input {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin: auto;
+    padding: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-radius: 5rem;
+    box-shadow: inset 0 0 .2rem .15rem rgb(0, 0, 0, .2);
+    border: aliceblue 2px solid;
+}
+
+.Input>img {
+    height: 2rem;
+}
+
+.Input>input {
+    height: 2rem;
+    font-size: 1.5rem;
+    width: 10rem;
+    text-indent: 5px;
+    cursor: text;
+    outline: none;
+    color: aliceblue;
+    background-color: transparent;
+    border: none;
+}
+
+.Input>input::placeholder {
+    color: aliceblue;
+}

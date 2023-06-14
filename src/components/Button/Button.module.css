@@ -1,0 +1,20 @@
+.Button {
+    background-color: red;
+    border: none;
+    border-bottom: .2rem solid aliceblue;
+    border-radius: .4rem;
+    font-size: 2rem;
+    color: aliceblue;
+    padding: 1.5rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    cursor: pointer;
+    transition-timing-function: ease-in;
+    transition: opacity 1s .5s, background-color .3s, color .3s, border-color .2s;
+}
+
+.Button:hover {
+    background-color: aliceblue;
+    color: red;
+    border-color: red;
+}

@@ -1,0 +1,162 @@
+.Login {
+    display: flex;
+    flex-direction: column;
+    transition: opacity 1s;
+}
+
+.Login>img {
+    height: 100vh;
+    object-fit: cover;
+    position: relative;
+}
+
+.Login>section {
+    background-color: rgb(0, 0, 0, .4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+.login-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    max-height: 75%;
+    border-radius: 2rem;
+    padding: 5rem;
+    background-color: rgb(0, 0, 0, .4);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    transition: translate 1s;
+}
+
+.login-form-container>h1 {
+    font-size: 4rem;
+    color: red;
+    margin-bottom: 5rem;
+    cursor: pointer;
+}
+
+.login-form-container>h1>img {
+    height: 4rem;
+    filter: invert(99%) sepia(99%) saturate(0%) hue-rotate(289deg) brightness(104%) contrast(101%);
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.login-form>span {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 2.5rem;
+    gap: 1rem;
+    background-color: rgba(163, 163, 163, 0.3);
+    border-radius: 4rem;
+    padding: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 20rem;
+}
+
+.login-form>span.invalid {
+    background-color: rgb(255, 0, 0, .7);
+    outline: 3px red solid;
+}
+
+.login-form>span>img {
+    height: 2rem;
+}
+
+.inputs {
+    width: 15rem;
+    font-size: 1.8rem;
+    text-indent: 7px;
+    color: aliceblue;
+    background-color: rgb(159, 143, 143, 0);
+    border: none;
+    cursor: text;
+}
+
+.inputs::placeholder {
+    color: rgb(192, 192, 192);
+}
+
+.inputs:focus {
+    outline: none;
+}
+
+.error-message {
+    position: absolute;
+    right: -20.5rem;
+    color: aliceblue;
+    text-align: center;
+    line-height: 1.5rem;
+    width: 15rem;
+    padding: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-radius: .5rem;
+    background-color: rgba(163, 163, 163, 0.3);
+}
+
+.error-message::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    border-width: 8px;
+    margin-top: -8px;
+    border-style: solid;
+    border-color: transparent rgba(163, 163, 163, 0.3) transparent transparent;
+}
+
+.login-form>button {
+    background-color: red;
+    color: aliceblue;
+    font-size: 1.8rem;
+    cursor: pointer;
+    line-height: .1rem;
+    margin-top: 1.3rem;
+    border-radius: 2rem;
+    height: 4rem;
+    border: none;
+    transition: background-color .3s, color .3s;
+}
+
+.login-form>button:hover {
+    background-color: aliceblue;
+    color: red;
+}
+
+.create-account {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+.create-account>p {
+    color: rgba(240, 248, 255, 0.5);
+}
+
+.create-account>h2 {
+    font-size: 1.5rem;
+    color: aliceblue;
+    cursor: pointer;
+    transition: color .3s ease;
+}
+
+.create-account>h2:hover {
+    color: red;
+}

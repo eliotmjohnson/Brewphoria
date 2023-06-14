@@ -1,0 +1,71 @@
+.DrinkFilter {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 2rem;
+    padding-top: 1rem;
+    background-color: red;
+    height: 50rem;
+    width: 18rem;
+    margin: 5rem;
+    margin-top: 3rem;
+    border-radius: 2rem;
+    box-shadow: 0 0 3rem 0 rgb(0, 0, 0);
+}
+
+.DrinkFilter>h1 {
+    position: absolute;
+    top: -2.5rem;
+    font-size: 2rem;
+    color: aliceblue;
+}
+
+.resetForm {
+    background-color: transparent;
+    position: absolute;
+    top: -2rem;
+    right: 1.5rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: rgb(240, 248, 255, .8);
+    transition: color .3s linear;
+}
+
+.resetForm:hover {
+    color: rgb(104, 135, 250);
+}
+
+.form {
+    height: 45rem;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.form::-webkit-scrollbar {
+    display: none;
+}
+
+.filter-button {
+    background-color: aliceblue;
+    color: red;
+    font-size: 2rem;
+    border: none;
+    position: absolute;
+    bottom: 2.5rem;
+    margin: auto;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+    border-radius: .25rem;
+    width: 15rem;
+    height: 4rem;
+    box-shadow: 0 .2rem .5rem -.1rem rgb(60, 60, 60);
+    transition: color .15s linear, background-color .15s linear;
+}
+
+.filter-button:hover {
+    color: aliceblue;
+    background-color: rgb(104, 135, 250);
+}

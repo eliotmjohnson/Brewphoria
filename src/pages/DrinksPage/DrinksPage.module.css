@@ -1,0 +1,140 @@
+.Drinks-Page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: opacity 1s;
+}
+
+.wrapper {
+    position: absolute;
+    width: 100%;
+    height: 90rem;
+    z-index: -1;
+}
+
+.background {
+    min-height: 90rem;
+    width: 100%;
+    position: absolute;
+    object-fit: cover;
+}
+
+.wrapper:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgb(0, 0, 0, .2) 0%, rgb(0, 0, 0) 100%);
+    z-index: 1;
+}
+
+.page-title {
+    display: flex;
+    gap: 1rem;
+    color: aliceblue;
+    text-shadow: 0 0 .8rem aliceblue;
+    font-size: 6rem;
+    margin: 2rem;
+}
+
+.page-title>p {
+    color: red;
+    text-shadow: 0 0 .8rem red;
+}
+
+.page-title>strong {
+    color: rgb(104, 135, 250);
+    text-shadow: 0 0 .8rem rgb(104, 135, 250)
+}
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    gap: 1rem;
+    position: absolute;
+    top: 1.2rem;
+    right: 0;
+    left: 0;
+    margin: auto;
+    z-index: 1;
+    transition: opacity 1s;
+}
+
+#back {
+    rotate: -30deg;
+}
+
+#next {
+    rotate: 30deg;
+}
+
+.pagination>button {
+    background-color: red;
+    color: aliceblue;
+    font-size: 1.5rem;
+    border: none;
+    cursor: pointer;
+    border-radius: .25rem;
+    width: 8rem;
+    height: 3rem;
+    box-shadow: 0 .2rem .5rem -.1rem rgb(60, 60, 60);
+}
+
+.pagination>button:hover {
+    color: red;
+    background-color: aliceblue;
+}
+
+.Drinks-Page>section {
+    display: flex;
+    width: 100%;
+}
+
+.drinks-container {
+    position: relative;
+    overflow: hidden;
+    width: 78rem;
+    height: 90rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 0 2rem 0 rgb(0, 0, 0, .6);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(0px);
+    border-radius: 2rem;
+    will-change: transform;
+    transition: backdrop-filter 2s;
+}
+
+.drinks {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 78rem;
+    height: 90rem;
+    flex-wrap: wrap;
+    perspective: 400rem;
+    will-change: transform;
+    transition: opacity 1s, transform 1s, translate 1s;
+}
+
+.drinksActive {
+    transition: opacity 1s, transform 0s, translate 1s;
+}
+
+.no-drinks {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    height: 70rem;
+    color: aliceblue;
+    font-size: 6rem;
+}
+
+.no-drinks>p {
+    font-size: 2rem;
+    color: rgb(240, 248, 255, .7);
+}

@@ -1,0 +1,15 @@
+@font-face {
+    font-family: lobster;
+    src: url(../assets/Fonts/Lobster-Regular.ttf);
+}
+
+* {
+    cursor: default;
+    -webkit-font-smoothing: antialiased;
+    font-family: lobster;
+}
+
+body {
+    font-family: lobster;
+    background-color: black;
+}

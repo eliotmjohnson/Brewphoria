@@ -1,0 +1,26 @@
+.RadioButton {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.RadioButton>input {
+    appearance: none;
+    height: 1.5rem;
+    width: 1.5rem;
+    accent-color: aliceblue;
+    cursor: pointer;
+    border-radius: 50%;
+    margin-bottom: .2rem;
+    border: 2px solid aliceblue;
+    transition: 0.1s all linear;
+}
+
+.RadioButton>input:checked {
+    border: .4rem solid aliceblue;
+}
+
+.RadioButton>label {
+    color: aliceblue;
+    font-size: 1.25rem;
+}
