@@ -135,6 +135,7 @@ const DrinksPage = () => {
 							opacity: loading ? 0 : 1,
 							translate: loading ? "0 4rem" : "0 0",
 							transform: `translate3d(-${pageLocation}rem, 0, 0 )`,
+							perspectiveOrigin: `${pageLocation}rem`,
 						}}
 					>
 						{(() => {

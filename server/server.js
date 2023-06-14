@@ -6,8 +6,9 @@ const axios = require("axios");
 const ViteExpress = require("vite-express");
 
 const { sequelize } = require("./database/database");
-const { DrinkBases } = require("./models/drinkBases");
-const { Drinks } = require("./models/drinks");
+const { User } = require("./models/user");
+const { Cart } = require("./models/cart");
+const { CartItem } = require("./models/cartItem");
 
 // Express
 const app = express();
@@ -17,6 +18,10 @@ app.use(express.json());
 app.use(cors());
 
 // Database Relations
+User.hasOne(Cart, { onDelete: "CASCADE" });
+Cart.belongsTo(User, { onDelete: "CASCADE" });
+Cart.hasMany(CartItem, { onDelete: "CASCADE" });
+CartItem.belongsTo(Cart, { onDelete: "CASCADE" });
 
 // Routes
 require("./routes/routes")(app);

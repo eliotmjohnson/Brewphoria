@@ -147,10 +147,11 @@
 
 .recipe-container {
     overflow-y: scroll;
-    height: 23rem;
     padding-left: 1rem;
     padding-right: 1rem;
     padding-bottom: 1rem;
+    padding-top: 1rem;
+    margin-top: -2rem;
     background-color: transparent;
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -171,25 +172,6 @@
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     transform: rotateY(180deg);
-}
-
-.closeDetails {
-    position: absolute;
-    cursor: pointer;
-    bottom: 1.2rem;
-    left: 1.3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.5rem;
-    height: 2rem;
-    width: 2rem;
-    border-radius: 50%;
-    background-color: red;
-    color: aliceblue;
-    border: none;
-    box-shadow: 0 .1rem .2rem 0rem rgb(60, 60, 60);
 }
 
 .outer>h1 {
@@ -226,7 +208,7 @@
 .ingredients>ul>li {
     display: flex;
     align-items: baseline;
-    width: 20rem;
+    width: 16rem;
     gap: .5rem;
     font-size: 1.1rem;
 }

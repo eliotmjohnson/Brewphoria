@@ -4,7 +4,7 @@ const { SECRET } = process.env;
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-const { Users } = require("../models/users");
+const { User } = require("../models/user");
 
 const createToken = (id, username, firstName, lastName) => {
 	return jwt.sign({ id, username, firstName, lastName }, SECRET, {
@@ -17,7 +17,7 @@ module.exports = {
 		try {
 			const { username, password, firstName, lastName } = req.body;
 
-			const foundUser = await Users.findOne({ where: { username } });
+			const foundUser = await User.findOne({ where: { username } });
 
 			if (foundUser) {
 				res.status(400).send("Username already exists");
@@ -25,7 +25,7 @@ module.exports = {
 				const salt = bcrypt.genSaltSync(10);
 				const hash = bcrypt.hashSync(password, salt);
 
-				const newUser = await Users.create({
+				const newUser = await User.create({
 					first_name: firstName,
 					last_name: lastName,
 					username: username,
@@ -55,7 +55,7 @@ module.exports = {
 		try {
 			const { username, password } = req.body;
 
-			const foundUser = await Users.findOne({ where: { username } });
+			const foundUser = await User.findOne({ where: { username } });
 
 			if (foundUser) {
 				const isAuthenticated = bcrypt.compareSync(

@@ -1,5 +1,6 @@
 const { register, login, getTokenData } = require("../controllers/auth");
 const { filterDrinks, getDrinks } = require("../controllers/drinkFilter");
+const { addToCart } = require("../controllers/cart");
 const { isAuthenticated } = require("../middleware/isAuthenticated");
 
 module.exports = (app) => {
@@ -11,4 +12,7 @@ module.exports = (app) => {
 	// Drink Filter
 	app.post("/filterDrinks", filterDrinks);
 	app.get("/getDrinks", getDrinks);
+
+	// Cart
+	app.post("/addToCart", addToCart);
 };

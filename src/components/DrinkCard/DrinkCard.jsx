@@ -21,10 +21,10 @@ const DrinkCard = ({ name, picture, price, id }) => {
 	const flipCard = () => {
 		if (!drinkData) {
 			axios
-				.get(`http://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`)
+				.get(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`)
 				.then((res) => {
 					let ingArr = [];
-					console.log(res.data.drinks[0]);
+
 					const data = res.data.drinks[0];
 
 					for (let i = 1; i <= 15; i++) {
@@ -46,6 +46,22 @@ const DrinkCard = ({ name, picture, price, id }) => {
 		}
 	};
 
+	const addToCart = () => {
+		const data = {
+			id: id,
+			name: name,
+			picture: picture,
+			price: price,
+			quantity: counter,
+			cartId: 1,
+		};
+
+		axios
+			.post("/addToCart", data)
+			.then((res) => {})
+			.catch((error) => console.log(error));
+	};
+
 	return (
 		<div
 			className={
@@ -65,16 +81,15 @@ const DrinkCard = ({ name, picture, price, id }) => {
 					<span>{counter}</span>
 					<button onClick={increment}>+</button>
 				</div>
-				<button className={classes["add-button"]}>Add</button>
+				<button className={classes["add-button"]} onClick={addToCart}>
+					Add
+				</button>
 				<span className={classes.details} onClick={flipCard}>
 					<h3>Drink Details</h3>
 					<span>&#62;</span>
 				</span>
 			</div>
 			<div className={classes.outer}>
-				<button onClick={flipCard} className={classes.closeDetails}>
-					X
-				</button>
 				<h1>{drinkData ? drinkData.strDrink : ""}</h1>
 				<div className={classes["recipe-container"]}>
 					<section className={classes.ingredients}>
@@ -84,8 +99,8 @@ const DrinkCard = ({ name, picture, price, id }) => {
 								return (
 									<li key={i}>
 										<strong>-</strong>
-										{ing.amount.trim()}
-										<p>{ing.ingredient.trim()}</p>
+										{ing.amount ? ing.amount.trim() : ""}
+										<p>{ing.ingredient ? ing.ingredient.trim() : ""}</p>
 									</li>
 								);
 							})}
@@ -96,6 +111,14 @@ const DrinkCard = ({ name, picture, price, id }) => {
 						<p>{drinkData ? drinkData.strInstructions : ""}</p>
 					</section>
 				</div>
+				<span
+					className={classes.details}
+					style={{ justifyContent: "center" }}
+					onClick={flipCard}
+				>
+					<h3>Back</h3>
+					<span>&#62;</span>
+				</span>
 			</div>
 		</div>
 	);
