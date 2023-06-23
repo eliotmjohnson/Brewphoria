@@ -27,6 +27,7 @@ const Catering = () => {
 	const scrollDown = () => {
 		expRef.current.scrollIntoView({
 			behavior: "smooth",
+			block: "center",
 		});
 	};
 
@@ -133,12 +134,12 @@ const Catering = () => {
 					<div
 						className={classes.screenshot2}
 						style={{
-							translate: inViewThree ? "-13rem 0" : "-90rem 0",
+							translate: inViewThree ? "-8rem 0" : "-90rem 0",
 						}}
 					></div>
 					<span
 						style={{
-							translate: inViewThree ? "-15rem 0" : "50rem 0",
+							translate: inViewThree ? "-10rem 0" : "50rem 0",
 						}}
 					>
 						<h1>Send your order, we'll take care of the rest</h1>
