@@ -2,14 +2,22 @@ import classes from "./DrinksPage.module.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import DrinkFilter from "../../components/DrinkFilter/DrinkFilter";
+import cart from "../../assets/Images/icons8-cart-100.png";
 import drinkBackground from "../../assets/Images/moritz-mentges-Z40sav8IYqQ-unsplash.jpg";
+import Cart from "../../components/Cart/Cart";
 import DrinkCard from "../../components/DrinkCard/DrinkCard";
+import { cartActions } from "../../state/slices/cartSlice";
+import Loader from "../../components/Loader/Loader";
 
 const DrinksPage = () => {
+	const dispatch = useDispatch();
 	const [isVisible, setIsVisible] = useState(false);
 	const [pageLocation, setPageLocation] = useState(0);
+	const { setCartOpen } = cartActions;
+	const [active, setActive] = useState(false);
+	const [optimize, setOptimize] = useState(false);
 	const drinks = useSelector((state) => state.drinks.drinksArr);
 	const loading = useSelector((state) => state.drinks.loading);
 	const navigate = useNavigate();
@@ -58,11 +66,21 @@ const DrinksPage = () => {
 		});
 	};
 
+	const openCart = () => {
+		setActive(true);
+		dispatch(setCartOpen(true));
+	};
+
 	return (
 		<main
 			className={classes["Drinks-Page"]}
 			style={{ opacity: isVisible ? 1 : 0 }}
 		>
+			<Cart active={active} setActive={setActive} />
+			<button className={classes["cart-button"]} onClick={openCart}>
+				<img src={cart} />
+				Cart
+			</button>
 			<div className={classes.wrapper}>
 				<img className={classes.background} src={drinkBackground} />
 			</div>
@@ -77,8 +95,9 @@ const DrinksPage = () => {
 						translate: isVisible ? "0 0" : "0 4rem",
 						transition: "translate 1s",
 						position: "sticky",
-						top: "3rem",
+						top: "7rem",
 					}}
+					setOptimize={setOptimize}
 					startPage={startPage}
 				/>
 				<div
@@ -88,7 +107,7 @@ const DrinksPage = () => {
 					<div
 						className={classes.pagination}
 						style={{
-							opacity: loading ? 0 : 1,
+							opacity: loading ? "0" : "1",
 						}}
 					>
 						<button
@@ -96,7 +115,7 @@ const DrinksPage = () => {
 							onClick={goBack}
 							style={{
 								transform:
-									pageLocation === 0
+									loading | (pageLocation === 0)
 										? "translateY(-10rem)"
 										: "translateY(0rem)",
 								transition:
@@ -114,17 +133,29 @@ const DrinksPage = () => {
 									!(Math.ceil(drinks.length / 6) * 78 > pageLocation + 78)
 										? "translateY(-10rem)"
 										: "translateY(0rem)",
-								transition: !(
-									Math.ceil(drinks.length / 6) * 78 >
-									pageLocation + 78
-								)
-									? "transform .5s 0s, color .15s linear, background-color .15s linear"
-									: "transform .5s .5s, color .15s linear, background-color .15s linear",
+								transition:
+									loading |
+									!(Math.ceil(drinks.length / 6) * 78 > pageLocation + 78)
+										? "transform .5s 0s, color .15s linear, background-color .15s linear"
+										: "transform .5s .5s, color .15s linear, background-color .15s linear",
 							}}
 						>
 							Next
 						</button>
 					</div>
+					{loading ? (
+						<Loader
+							style={{
+								filter:
+									"invert(99%) sepia(99%) saturate(0%) hue-rotate(289deg) brightness(104%) contrast(101%)",
+								position: "absolute",
+								top: "20rem",
+								right: "0",
+								left: "0",
+								margin: "auto",
+							}}
+						/>
+					) : undefined}
 					<section
 						className={
 							loading
@@ -136,10 +167,11 @@ const DrinksPage = () => {
 							translate: loading ? "0 4rem" : "0 0",
 							transform: `translate3d(-${pageLocation}rem, 0, 0 )`,
 							perspectiveOrigin: `${pageLocation}rem`,
+							willChange: optimize ? "contents" : "initial",
 						}}
 					>
 						{(() => {
-							if (drinks.length === 0) {
+							if (!drinks[0]) {
 								return (
 									<h1 className={classes["no-drinks"]}>
 										There are no drinks to show{" "}
@@ -155,6 +187,7 @@ const DrinksPage = () => {
 											picture={drink.picture}
 											name={drink.name}
 											price={drink.price}
+											inList={false}
 										/>
 									);
 								});
@@ -167,6 +200,7 @@ const DrinksPage = () => {
 											picture={drink.strDrinkThumb}
 											name={drink.strDrink}
 											price={drink.price}
+											inList={false}
 										/>
 									);
 								});

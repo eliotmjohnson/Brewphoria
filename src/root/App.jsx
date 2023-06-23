@@ -14,6 +14,10 @@ import Home from "../pages/Home/Home";
 import Catering from "../pages/Catering/Catering";
 import Login from "../pages/Login/Login";
 import DrinksPage from "../pages/DrinksPage/DrinksPage";
+import Account from "../pages/Account/Account";
+import Profile from "../pages/Account/Profile/Profile";
+import Orders from "../pages/Account/Orders/Orders";
+import Favorites from "../pages/Account/Favorites/Favorites";
 
 const router = createBrowserRouter([
 	{
@@ -23,9 +27,9 @@ const router = createBrowserRouter([
 				<Header />
 				<Outlet />
 				<ScrollRestoration
-					getKey={(location, matches) => {
-						return location.pathname;
-					}}
+				// getKey={(location, matches) => {
+				// 	return location.pathname;
+				// }}
 				/>
 			</>
 		),
@@ -41,6 +45,24 @@ const router = createBrowserRouter([
 			{
 				path: "/drinks",
 				element: <DrinksPage />,
+			},
+			{
+				path: "/account/:id",
+				element: <Account />,
+				children: [
+					{
+						path: "profile",
+						element: <Profile />,
+					},
+					{
+						path: "orders",
+						element: <Orders />,
+					},
+					{
+						path: "favorites",
+						element: <Favorites />,
+					},
+				],
 			},
 			{
 				path: "*",

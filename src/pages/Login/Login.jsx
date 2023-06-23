@@ -16,6 +16,7 @@ const Login = () => {
 	const [register, setRegister] = useState(false);
 	const [isVisible, setIsVisible] = useState(false);
 	const authContext = useContext(AuthContext);
+	const [error, setError] = useState();
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -81,7 +82,10 @@ const Login = () => {
 			.strict(),
 	});
 
-	const handleSubmit = (values) => {
+	const handleSubmit = (values, { setSubmitting }) => {
+		setSubmitting(true);
+		setError(null);
+
 		const body = {
 			username: values.username,
 			password: values.password,
@@ -99,7 +103,11 @@ const Login = () => {
 				navigate(authContext.page);
 			})
 			.catch((err) => {
-				console.log(err);
+				setError(err.response.data);
+				setTimeout(() => {
+					setError();
+					setSubmitting(false);
+				}, 3000);
 			});
 	};
 
@@ -114,6 +122,7 @@ const Login = () => {
 						Brewphoria
 						<img src={logo} />
 					</h1>
+					<h2 className={classes.error}>{error ? error : undefined}</h2>
 					<Formik
 						initialValues={initialValues}
 						validationSchema={
@@ -121,7 +130,7 @@ const Login = () => {
 						}
 						onSubmit={handleSubmit}
 					>
-						{({ errors, touched }) => {
+						{({ errors, touched, isSubmitting }) => {
 							return (
 								<Form className={classes["login-form"]}>
 									{register ? (
@@ -218,8 +227,18 @@ const Login = () => {
 											component="aside"
 										/>
 									</span>
-									<button type="submit">
-										{register ? "Create Account" : "Login"}
+									<button
+										className={error ? classes.errorAnimation : undefined}
+										type="submit"
+										disabled={isSubmitting}
+									>
+										{register
+											? isSubmitting
+												? "Creating Account..."
+												: "Create Account"
+											: isSubmitting
+											? "Logging in..."
+											: "Login"}
 									</button>
 									<div className={classes["create-account"]}>
 										<p>

@@ -1,4 +1,200 @@
 .Catering {
-    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 100%;
+}
+
+.title-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-top: 1rem;
+    height: 70rem;
+    width: 100%;
+}
+
+.title {
+    color: red;
+    font-size: clamp(0rem, 10vw, 7rem);
+    margin: clamp(0rem, 4vw, 1rem);
+    opacity: 0;
+    translate: 0 5rem;
+    text-shadow: 0 0 .8rem rgb(22, 22, 22), 0 0 .8rem red;
+    transition: opacity 1.5s, translate 1s 0s;
+}
+
+.subtitle {
+    color: aliceblue;
+    font-size: clamp(0rem, 5vw, 3rem);
+    opacity: 0;
+    translate: 0 5rem;
+    text-shadow: 0 0 .8rem rgb(73, 73, 73), 0 0 1rem aliceblue;
+    transition: opacity 1.5s .2s, translate 1s .2s;
+}
+
+.background-container {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    overflow: hidden;
+    transition: opacity 1s .5s;
+}
+
+.background {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    object-fit: cover;
+    width: 100%;
+}
+
+.blackGradient {
+    z-index: 1;
+    width: 100%;
+    background: linear-gradient(to top, rgb(0, 0, 0, .1) 0%, rgb(0, 0, 0) 100%);
+    height: 100%;
+}
+
+.see-more {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+    margin: clamp(0rem, 5vw, 2rem);
+    cursor: pointer;
+    opacity: 0;
+    translate: 0 5rem;
+    transition: opacity 1.5s .4s, translate 1s .4s;
+}
+
+.see-more>p {
+    font-size: clamp(0rem, 3vw, 2rem);
+    cursor: pointer;
+    color: rgb(104, 135, 250);
+    text-shadow: 0 0 1rem rgb(160, 160, 160), 0 0 .8rem rgb(104, 135, 250);
+}
+
+#arrow {
+    cursor: pointer;
+    font-size: clamp(0rem, 4vw, 3rem);
+}
+
+.title-active {
+    opacity: 1;
+    translate: 0 0;
+}
+
+.exp-block {
+    position: relative;
+    height: 63rem;
+    width: 100%;
+}
+
+.expBackground {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.exp-block>section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: rgb(0, 0, 0, .3);
+    backdrop-filter: blur(6px);
+}
+
+.exp-block>section>span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: max-content;
+    background-color: rgb(0, 0, 0, .3);
+    border-radius: 2rem;
+    padding: 3rem;
+    gap: 3rem;
+    transition: translate 1s 1s;
+}
+
+.exp-block>section>span>h1 {
+    color: red;
+    text-align: center;
+    text-shadow: 0 0 .8rem rgb(22, 22, 22), 0 0 .8rem red;
+    text-decoration: underline;
+    font-size: 4rem;
+    width: 30rem;
+}
+
+.exp-block>section>span>p {
+    color: aliceblue;
+    font-size: 1.5rem;
+    text-shadow: 0 0 .5rem rgb(73, 73, 73), 0 0 .4rem aliceblue;
+    width: 30rem;
+    text-align: center;
+    line-height: 2rem;
+}
+
+.screenshot {
+    background-image:
+        linear-gradient(to right, rgb(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%),
+        url('../../assets/Images/Screenshot 2023-06-19 at 1.26.07 PM.png');
+    height: 50rem;
+    min-width: 90rem;
+    translate: 3rem;
+    border-radius: 3rem;
+    margin-right: 5rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: -1rem 1rem 4rem 0 rgb(0, 0, 0);
+    transition: translate 1s .3s;
+}
+
+.screenshot2 {
+    background-image:
+        linear-gradient(to left, rgb(0, 0, 0, 0) 0%, rgb(0, 0, 0, .95) 50%),
+        url('../../assets/Images/Screenshot2.png');
+    height: 50rem;
+    min-width: 90rem;
+    translate: 3rem;
+    border-radius: 3rem;
+    margin-right: 5rem;
+    background-position: -12rem 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: -1rem 1rem 4rem 0 rgb(0, 0, 0);
+    transition: translate 1s .3s;
+}
+
+.goButton {
+    background-color: red;
+    color: aliceblue;
+    font-size: 2rem;
+    border: none;
+    cursor: pointer;
+    border-radius: .25rem;
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+    width: 15rem;
+    min-height: 4rem;
+    border-bottom: 3px solid aliceblue;
+    box-shadow: 0 .2rem .5rem -.1rem rgb(60, 60, 60);
+    transition: background-color .2s cubic-bezier(0.455, 0.03, 0.515, 0.955), color .2s, border-bottom .2s;
+}
+
+.goButton:hover {
+    color: red;
+    background-color: aliceblue;
+    border-bottom: 3px solid red;
 }

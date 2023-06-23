@@ -1,0 +1,86 @@
+.CartCard {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: aliceblue;
+    width: 85%;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 .2rem .5rem -.1rem rgb(128, 128, 128);
+}
+
+.CartCard>img {
+    border-radius: .5rem;
+    height: 4rem;
+}
+
+.CartCard>h1 {
+    color: red;
+    width: 6rem;
+    font-size: 1.3rem;
+}
+
+.CartCard>p {
+    color: rgb(104, 135, 250);
+    font-size: 1.5rem;
+    width: 5rem;
+    translate: 0 .05rem;
+}
+
+.counter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(104, 135, 250);
+    padding: .3rem;
+    height: 5rem;
+    width: 1.5rem;
+    border-radius: 5rem;
+    box-shadow: 0 .2rem .5rem -.1rem rgb(133, 133, 133);
+}
+
+.counter>span {
+    color: aliceblue;
+    font-size: 1rem;
+}
+
+.counter>button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 5rem;
+    box-shadow: 0 .2rem .5rem -.1rem rgb(60, 60, 60);
+    transition: background-color .3s;
+}
+
+.counter>button>h3 {
+    color: red;
+    font-size: 1.5rem;
+    translate: 0 .25rem;
+    cursor: pointer;
+    transition: color .3s;
+}
+
+.counter>button>h4 {
+    color: red;
+    font-size: 1.5rem;
+    translate: 0 -.05rem;
+    cursor: pointer;
+    transition: color .3s;
+}
+
+.counter>button:hover {
+    background-color: red;
+}
+
+.counter>button:hover h3,
+.counter>button:hover h4 {
+    color: aliceblue;
+}

@@ -32,6 +32,9 @@ module.exports = {
 					hashed_password: hash,
 				});
 
+				await newUser.createCart();
+				await newUser.createFavoritesList();
+
 				const token = createToken(newUser.id, username, firstName, lastName);
 
 				const exp = Date.now() + 1000 * 60 * 60 * 24;
@@ -88,8 +91,57 @@ module.exports = {
 				res.status(400).send("User name or password incorrect");
 			}
 		} catch (error) {
-			console.log(error);
 			res.status(500).send("Login system is having some issues");
+		}
+	},
+
+	updatePassword: async (req, res) => {
+		try {
+			const { oldPassword, newPassword } = req.body;
+			const { id } = req.params;
+
+			const user = await User.findOne({
+				where: {
+					id: +id,
+				},
+			});
+
+			if (user) {
+				const passwordMatch = bcrypt.compareSync(
+					oldPassword,
+					user.hashed_password
+				);
+
+				const newPassMatch = bcrypt.compareSync(
+					newPassword,
+					user.hashed_password
+				);
+
+				if (!passwordMatch) {
+					return res.status(400).send("Old Password Doesn't Match");
+				}
+
+				if (newPassMatch) {
+					return res
+						.status(400)
+						.send("New password can't be the same as old password");
+				}
+
+				if (passwordMatch) {
+					const salt = bcrypt.genSaltSync(10);
+					const hash = bcrypt.hashSync(newPassword, salt);
+
+					await user.update({
+						hashed_password: hash,
+					});
+
+					res.status(200).send("Updated!!");
+				} else {
+					res.status(400).send("Old Password Doesn't Match");
+				}
+			}
+		} catch (error) {
+			res.status(400).send("Something went wrong!");
 		}
 	},
 
@@ -97,5 +149,19 @@ module.exports = {
 		const token = req.body.storedToken;
 		const data = jwt.verify(token, SECRET);
 		res.status(200).send(data);
+	},
+
+	deleteAccount: async (req, res) => {
+		const { id } = req.params;
+
+		const user = await User.findOne({
+			where: {
+				id: id,
+			},
+		});
+
+		await user.destroy();
+
+		res.sendStatus(200);
 	},
 };

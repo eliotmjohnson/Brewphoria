@@ -1,0 +1,339 @@
+.profile {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1rem;
+    position: relative;
+    width: 60rem;
+    height: 100%;
+    border-radius: 1rem;
+}
+
+.profile>div {
+    z-index: 1;
+}
+
+.logout {
+    background-color: red;
+    color: aliceblue;
+    font-size: 1.3rem;
+    border: none;
+    cursor: pointer;
+    margin: .5rem;
+    position: absolute;
+    border-radius: .3rem;
+    top: 1rem;
+    right: 1rem;
+    width: 10rem;
+    height: 3rem;
+    box-shadow: 0 .2rem .5rem -.1rem rgb(60, 60, 60);
+    transition: color .15s linear, background-color .15s linear;
+}
+
+.logout:hover {
+    color: red;
+    background-color: aliceblue;
+}
+
+.profile>div>h1 {
+    color: red;
+    font-size: 3rem;
+    border-bottom: 2px solid red;
+    padding: 2rem;
+    padding-bottom: 3rem;
+}
+
+.personalInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.personalInfo>div>h1 {
+    font-size: 2rem;
+    color: red;
+    margin: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.personalInfo>div {
+    display: flex;
+    flex-direction: column;
+}
+
+.personalInfo>span {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    width: max-content;
+    margin: 2rem;
+    background-color: aliceblue;
+    border: 2px solid red;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: .1rem .2rem .5rem 0 rgb(161, 161, 161);
+}
+
+.nameContainer {
+    display: flex;
+    gap: 3rem;
+}
+
+.nameInfo {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.nameInfo>h1 {
+    color: rgb(104, 135, 250);
+    font-size: 1.3rem;
+    text-decoration: underline;
+}
+
+.nameInfo>p {
+    font-size: 2rem;
+    color: red;
+    text-shadow: 0 .1rem .4rem rgb(173, 173, 173);
+}
+
+.divider {
+    border: 1px red solid;
+}
+
+.passwordContainer>h1 {
+    font-size: 2rem;
+    color: red;
+    width: 40rem;
+    margin: 2rem;
+    margin-top: 2rem;
+}
+
+.passDiv {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    margin-left: 2rem;
+}
+
+.changePass {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.changePass>div>span {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 2.5rem;
+    background-color: rgba(64, 64, 64, 0.5);
+    border-radius: 4rem;
+    padding: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 20rem;
+    box-shadow: 0 .1rem .5rem rgb(43, 43, 43);
+}
+
+.changePass>div>span.invalid {
+    background-color: rgb(255, 0, 0, .7);
+    outline: 3px red solid;
+}
+
+.inputs {
+    width: 15rem;
+    font-size: 1.8rem;
+    text-indent: 7px;
+    color: rgb(239, 247, 255);
+    background-color: rgb(159, 143, 143, 0);
+    border: none;
+    cursor: text;
+}
+
+.inputs::placeholder {
+    color: rgb(61, 61, 61);
+}
+
+.inputs:focus {
+    outline: none;
+}
+
+.error-message {
+    position: absolute;
+    right: -20.5rem;
+    color: aliceblue;
+    text-align: center;
+    line-height: 1.5rem;
+    width: 15rem;
+    padding: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-radius: .5rem;
+    background-color: rgba(97, 97, 97, 0.8);
+}
+
+.error-message::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    border-width: 8px;
+    margin-top: -8px;
+    border-style: solid;
+    border-color: transparent rgba(97, 97, 97, 0.8) transparent transparent;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+}
+
+.save-button {
+    background-color: red;
+    color: aliceblue;
+    font-size: 1.3rem;
+    border: none;
+    cursor: pointer;
+    margin: .5rem;
+    border-radius: .25rem;
+    width: 13rem;
+    height: 4rem;
+    box-shadow: 0 .2rem .5rem -.1rem rgb(60, 60, 60);
+    transition: color .15s linear, background-color .15s linear;
+}
+
+.save-button:hover {
+    color: red;
+    background-color: aliceblue;
+}
+
+.discard {
+    background-color: aliceblue;
+    color: red;
+    font-size: 1.3rem;
+    border: none;
+    cursor: pointer;
+    margin: 1rem;
+    border-radius: .25rem;
+    width: 12rem;
+    height: 4rem;
+    box-shadow: 0 .2rem .5rem -.1rem rgb(112, 112, 112);
+    transition: color .15s linear, background-color .15s linear;
+}
+
+.discard:hover {
+    color: aliceblue;
+    background-color: red;
+}
+
+.delete-account {
+    background-color: aliceblue;
+    color: red;
+    font-size: 1.3rem;
+    border: none;
+    cursor: pointer;
+    margin: .5rem;
+    position: absolute;
+    border-radius: .4rem;
+    top: 25rem;
+    right: 1rem;
+    width: 10rem;
+    height: 3rem;
+    box-shadow: 0 .1rem .3rem -.1rem rgb(49, 49, 49);
+    transition: color .15s linear, background-color .15s linear;
+}
+
+.delete-account:hover {
+    color: aliceblue;
+    background-color: red;
+}
+
+.delete-modal {
+    background-color: rgb(0, 0, 0, .7);
+    position: fixed;
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    transition: opacity .5s, visibility 0s .5s;
+}
+
+.modalActive {
+    visibility: visible;
+    opacity: 1;
+    translate: 0 0;
+    transition: opacity .5s, visibility 0s 0s, translate .5s;
+}
+
+.delete-modal>section {
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    translate: 0 5rem;
+    opacity: 0;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
+    border-radius: 2rem;
+    box-shadow: 0 .7rem 2.5rem 0 rgb(0, 0, 0);
+    transition: opacity .5s 0s, visibility 0s .5s, translate .5s 0s;
+}
+
+.delete-modal>section.modalActive {
+    visibility: visible;
+    opacity: 1;
+    translate: 0 0;
+    transition: opacity .5s .3s, visibility 0s 0s, translate .5s .3s;
+}
+
+.delete-modal>section>h1 {
+    font-size: 2.5rem;
+    color: red;
+}
+
+.delete-modal>section>p {
+    font-size: 1.5rem;
+    color: rgb(0, 0, 0, .7);
+}
+
+.modal-buttons {
+    display: flex;
+    gap: .5rem;
+}
+
+.modal-buttons>button {
+    background-color: aliceblue;
+    color: red;
+    font-size: 1.5rem;
+    border: none;
+    cursor: pointer;
+    margin: .5rem;
+    border-radius: .4rem;
+    width: 10rem;
+    height: 3rem;
+    box-shadow: 0 .1rem .3rem -.1rem rgb(49, 49, 49);
+    transition: color .15s linear, background-color .15s linear;
+}
+
+.modal-buttons>button:hover {
+    color: aliceblue;
+    background-color: red;
+}
+
+.modal-buttons>button.no {
+    color: aliceblue;
+    background-color: red;
+}
+
+.modal-buttons>button.no:hover {
+    color: red;
+    background-color: aliceblue;
+}

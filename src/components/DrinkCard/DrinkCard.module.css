@@ -12,8 +12,23 @@
     transform-style: preserve-3d;
 }
 
+.DrinkCard * {
+    cursor: pointer;
+}
+
 .DrinkCard-flip {
     transform: rotateY(180deg);
+}
+
+@keyframes card-flip {
+    50% {
+        scale: 1.1;
+    }
+}
+
+.card-flip-animation {
+    animation-name: card-flip;
+    animation-duration: .8s;
 }
 
 .inner {
@@ -56,7 +71,7 @@
     width: 15rem;
     min-height: 4rem;
     box-shadow: 0 .2rem .5rem -.1rem rgb(60, 60, 60);
-    transition: background-color .2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    transition: background-color .2s cubic-bezier(0.455, 0.03, 0.515, 0.955), color .2s;
 }
 
 .add-button:hover {
@@ -151,7 +166,11 @@
     padding-right: 1rem;
     padding-bottom: 1rem;
     padding-top: 1rem;
-    margin-top: -2rem;
+    margin-top: -1rem;
+    border-bottom: .3rem solid red;
+    border-top: .3rem solid red;
+    border-radius: 1rem;
+    box-shadow: 0 .2rem .5rem -.1rem rgb(110, 110, 110);
     background-color: transparent;
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -243,4 +262,100 @@
 
 .instructions>p {
     font-size: 1.1rem;
+}
+
+.favButton {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2rem;
+    height: 2rem;
+    width: 2rem;
+}
+
+.heart {
+    height: 3rem;
+    width: 3rem;
+    z-index: 2;
+    scale: 1;
+}
+
+.favText {
+    opacity: 0;
+    position: absolute;
+    translate: 0 3.5rem;
+    color: aliceblue;
+    width: 5.5rem;
+    background-color: red;
+    text-align: center;
+    cursor: default;
+    padding: .5rem;
+    border-radius: .5rem;
+    transition: opacity .2s;
+}
+
+.favText::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    right: 50%;
+    border-width: 8px;
+    margin-right: -8px;
+    border-style: solid;
+    border-color: transparent transparent red transparent;
+}
+
+.heart:hover+.favText {
+    opacity: 1;
+}
+
+@keyframes heart-animate {
+    10% {
+        scale: .8
+    }
+
+    20% {
+        scale: 1.2
+    }
+
+    30% {
+        scale: .84
+    }
+
+    30% {
+        scale: 1.16
+    }
+
+    40% {
+        scale: .88
+    }
+
+    50% {
+        scale: 1.10;
+    }
+
+    60% {
+        scale: .92;
+    }
+
+    70% {
+        scale: 1.04;
+    }
+
+    80% {
+        scale: .98;
+    }
+
+    90% {
+        scale: 1.01;
+    }
+}
+
+.heartAnimation {
+    animation-name: heart-animate;
+    animation-duration: .5s;
 }

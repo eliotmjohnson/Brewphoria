@@ -1,16 +1,25 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../../state/authContext";
 import drinks from "../../assets/Images/drinks.svg";
 import "./NavLinks.css";
 
-const NavLinks = (props) => {
+const NavLinks = ({ inView }) => {
 	const { username, destination } = useContext(AuthContext);
 	const navigate = useNavigate();
 	const [topBurgerActive, setTopBurgerActive] = useState("");
 	const [bottomBurgerActive, setBottomBurgerActive] = useState("");
 	const [middleBurgerActive, setMiddleBurgerActive] = useState("");
 	const [navBarActive, setNavBarActive] = useState("");
+
+	useEffect(() => {
+		if (!inView) {
+			setNavBarActive("");
+			setTopBurgerActive("");
+			setBottomBurgerActive("");
+			setMiddleBurgerActive("");
+		}
+	}, [inView]);
 
 	const animateBurger = () => {
 		if (topBurgerActive === "") {

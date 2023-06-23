@@ -1,0 +1,100 @@
+.Account {
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(to top, rgb(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%), url('../../assets/Images/denis-sebastian-tamas-HJ7vZTlpmog-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 68rem;
+    overflow: hidden;
+    position: relative;
+    transition: opacity 1s;
+}
+
+.interface {
+    display: flex;
+    height: 57rem;
+    margin-top: 5rem;
+    z-index: 1;
+    transition: translate 1s;
+}
+
+.Account::after {
+    content: "";
+    left: 0;
+    top: 0;
+    position: absolute;
+    height: 100rem;
+    width: 100%;
+    backdrop-filter: blur(6px);
+}
+
+.sidebar {
+    position: relative;
+    background-color: red;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    width: 20rem;
+    overflow: hidden;
+}
+
+.sidebar-logo {
+    position: absolute;
+    bottom: -3rem;
+    rotate: 10deg;
+    left: -5rem;
+    opacity: .3;
+    height: 35rem;
+}
+
+.profile {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    border-bottom: solid 1px aliceblue;
+    padding: 2rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-right .15s;
+}
+
+.profile>h1 {
+    font-size: 2rem;
+    color: aliceblue;
+    cursor: pointer;
+}
+
+.profile>img {
+    cursor: pointer;
+    height: 4rem;
+}
+
+.content {
+    position: relative;
+    background-color: aliceblue;
+    height: 100%;
+    box-shadow: inset .5rem 0 .5rem -.4rem rgb(122, 122, 122);
+    border-bottom-right-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.button-active {
+    border-right: 10px solid aliceblue;
+}
+
+.logoCont {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.backgroundLogo {
+    height: 55rem;
+    rotate: 10deg;
+    position: absolute;
+    opacity: .15;
+    bottom: -7rem;
+    left: 9rem;
+    z-index: 0;
+}

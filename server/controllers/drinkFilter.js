@@ -1,6 +1,7 @@
 const { DrinkCategories } = require("../models/drinkCategories");
 const { DrinkBases } = require("../models/drinkBases");
 const { Drinks } = require("../models/drinks");
+const { FavoritesList } = require("../models/favoritesList");
 
 module.exports = {
 	filterDrinks: async (req, res) => {
@@ -127,7 +128,17 @@ module.exports = {
 	},
 
 	getDrinks: async (req, res) => {
+		const { id } = req.params;
+		let data;
 		let randomArr = [];
+
+		const favsList = await FavoritesList.findOne({
+			where: {
+				userId: id,
+			},
+		});
+
+		const items = await favsList.getFavoritesListItems();
 
 		const firstArr = await Drinks.findOne({
 			where: { id: 2 },
@@ -162,6 +173,8 @@ module.exports = {
 			randomArr.push(drinkObj);
 		}
 
-		res.status(200).send(randomArr);
+		data = { randomArr, items };
+
+		res.status(200).send(data);
 	},
 };

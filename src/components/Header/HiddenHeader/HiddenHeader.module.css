@@ -1,0 +1,84 @@
+.HiddenHeader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: red;
+    padding: 2rem;
+    padding-right: 0;
+    translate: 0 -10rem;
+    height: 4em;
+    border-bottom: .2rem solid aliceblue;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    overflow: hidden;
+    box-sizing: border-box;
+    z-index: 10;
+    transition: translate .5s;
+}
+
+.header-active {
+    translate: 0 0;
+}
+
+.HiddenHeader h1 {
+    font-size: 2rem;
+    color: aliceblue;
+    cursor: pointer;
+    translate: 0 -.4rem;
+    padding-left: 1.5rem;
+    z-index: 1;
+}
+
+.logo {
+    height: 6rem;
+    opacity: .4;
+    position: absolute;
+    right: 20rem;
+    bottom: -1rem;
+    transform: rotate(10deg);
+}
+
+.header-logo {
+    height: 2.5rem;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    right: 1.7rem;
+    width: 5rem;
+    z-index: 3;
+}
+
+.logo-container>h4 {
+    color: aliceblue;
+    font-size: .8rem;
+    cursor: pointer;
+    text-align: center;
+    width: 8rem;
+}
+
+#account-logo {
+    height: 2.5rem;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 500px) {
+    .header-logo {
+        display: none;
+    }
+
+    .logo {
+        height: 10rem;
+        opacity: .4;
+        position: absolute;
+        left: 6rem;
+        transform: rotate(10deg);
+    }
+}

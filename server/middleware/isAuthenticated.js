@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 module.exports = {
 	isAuthenticated: (req, res, next) => {
 		try {
-			const headerToken = req.get("Authorization");
+			const headerToken = req.get("authorization");
 
 			if (!headerToken) {
 				console.log("ERROR IN auth middleware");

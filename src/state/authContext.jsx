@@ -15,12 +15,12 @@ const AuthContext = createContext({
 });
 
 export const AuthContextProvider = (props) => {
-	const [token, setToken] = useState();
+	const [token, setToken] = useState("");
 	const [userId, setUserId] = useState();
 	const [username, setUsername] = useState();
 	const [firstName, setFirstName] = useState();
 	const [lastName, setLastName] = useState();
-	const [page, setPage] = useState();
+	const [page, setPage] = useState("/");
 
 	const getLocalData = async () => {
 		const storedToken = localStorage.getItem("token");
@@ -55,6 +55,8 @@ export const AuthContextProvider = (props) => {
 			setUsername(username);
 			setFirstName(firstName);
 			setLastName(lastName);
+		} else {
+			setToken((prev) => undefined);
 		}
 	};
 
@@ -95,7 +97,7 @@ export const AuthContextProvider = (props) => {
 	};
 
 	const destination = (page) => {
-		setPage(page);
+		setPage((prev) => page);
 	};
 
 	const contextValue = {

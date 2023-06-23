@@ -1,0 +1,36 @@
+.Favorites {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60rem;
+    height: 57rem;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.Favorites::-webkit-scrollbar {
+    display: none;
+}
+
+.Favorites>h1 {
+    font-size: 5rem;
+    margin: 2rem;
+    margin-bottom: 4rem;
+    color: red;
+    text-shadow: 0 .1rem .3rem red;
+}
+
+.drinks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+    transition: opacity 1s, translate 1s;
+}
+
+.noFavs {
+    font-size: 4rem;
+    margin-top: 10rem;
+}

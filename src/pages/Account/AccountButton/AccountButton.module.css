@@ -1,0 +1,25 @@
+.AccountButton {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    cursor: pointer;
+    border-bottom: 1px aliceblue solid;
+    text-decoration: none;
+    transition: border-right .15s;
+}
+
+.button-active {
+    border-right: 10px solid aliceblue;
+}
+
+.AccountButton>img {
+    cursor: pointer;
+    height: 3rem;
+}
+
+.AccountButton>h1 {
+    cursor: pointer;
+    font-size: 2rem;
+    color: aliceblue;
+}

@@ -4,6 +4,13 @@
     transition: opacity 1s;
 }
 
+.error {
+    position: absolute;
+    color: rgba(216, 38, 38, 0.9);
+    top: 11.8rem;
+    font-size: 1.8rem;
+}
+
 .Login>img {
     height: 100vh;
     object-fit: cover;
@@ -53,6 +60,7 @@
     flex-direction: column;
     gap: 1rem;
 }
+
 
 .login-form>span {
     position: relative;
@@ -159,4 +167,55 @@
 
 .create-account>h2:hover {
     color: red;
+}
+
+@keyframes error-animation {
+    5% {
+        translate: 10px 0;
+    }
+
+    10% {
+        translate: -9px 0;
+    }
+
+    15% {
+        translate: 8px 0;
+    }
+
+    20% {
+        translate: -7px 0;
+    }
+
+    25% {
+        translate: 6px 0;
+    }
+
+    30% {
+        translate: -5px 0;
+    }
+
+    35% {
+        translate: 4px 0;
+    }
+
+    45% {
+        translate: -3px 0;
+    }
+
+    55% {
+        translate: 2px 0;
+    }
+
+    70% {
+        translate: -1px 0;
+    }
+
+    90% {
+        translate: 0 0;
+    }
+}
+
+.errorAnimation {
+    animation-name: error-animation;
+    animation-duration: .9s;
 }

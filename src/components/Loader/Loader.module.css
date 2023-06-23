@@ -1,0 +1,17 @@
+.loader {
+    height: 5rem;
+    width: 5rem;
+    animation-name: loader;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    transform-origin: center;
+    border: solid 2px black;
+    padding: .5rem;
+    border-radius: 100%;
+}
+
+@keyframes loader {
+    100% {
+        transform: rotate(360deg);
+    }
+}

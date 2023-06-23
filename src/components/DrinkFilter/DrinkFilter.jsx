@@ -1,15 +1,18 @@
 import classes from "./DrinkFilter.module.css";
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { useDispatch } from "react-redux";
 import { Formik, Form, Field } from "formik";
 import { drinksActions } from "../../state/slices/drinksSlice";
+import { favoritesActions } from "../../state/slices/favoritesSlice";
 import FilterSection from "./FilterSection/FilterSection";
+import AuthContext from "../../state/authContext";
 import RadioButton from "../../components/DrinkFilter/RadioButton/RadioButton";
 import Input from "./Input/Input";
 
-const DrinkFilter = ({ style, startPage }) => {
+const DrinkFilter = ({ style, startPage, setOptimize }) => {
 	const dispatch = useDispatch();
+	const { token, userId } = useContext(AuthContext);
 
 	const initialValues = {
 		category: "",
@@ -19,18 +22,29 @@ const DrinkFilter = ({ style, startPage }) => {
 
 	const getInitialDrinks = () => {
 		axios
-			.get("/getDrinks")
+			.get(`/getDrinks/${userId}`, {
+				headers: {
+					Authorization: token,
+				},
+			})
 			.then((res) => {
-				dispatch(drinksActions.setDrinksArr(res.data));
+				dispatch(favoritesActions.setFavorites(res.data.items));
+				dispatch(drinksActions.setDrinksArr(res.data.randomArr));
 				dispatch(drinksActions.setLoading(false));
+				setTimeout(() => {
+					setOptimize((prev) => true);
+				}, 1000);
 			})
 			.catch((error) => console.log(error));
 	};
 
 	useEffect(() => {
-		dispatch(drinksActions.setLoading(true));
-		getInitialDrinks();
-	}, []);
+		dispatch(drinksActions.setDrinksArr([]));
+		if (token) {
+			dispatch(drinksActions.setLoading(true));
+			getInitialDrinks();
+		}
+	}, [token]);
 
 	const handleSubmit = (values) => {
 		dispatch(drinksActions.setLoading(true));
@@ -38,7 +52,11 @@ const DrinkFilter = ({ style, startPage }) => {
 		setTimeout(() => {
 			startPage();
 			axios
-				.post("/filterDrinks", values)
+				.post("/filterDrinks", values, {
+					headers: {
+						Authorization: token,
+					},
+				})
 				.then((res) => {
 					dispatch(drinksActions.setDrinksArr(res.data));
 					dispatch(drinksActions.setLoading(false));
@@ -51,6 +69,7 @@ const DrinkFilter = ({ style, startPage }) => {
 	return (
 		<div className={classes["DrinkFilter"]} style={style}>
 			<h1>Filter</h1>
+			<div className={classes.border}></div>
 			<Formik initialValues={initialValues} onSubmit={handleSubmit}>
 				{({ resetForm, values }) => (
 					<Form className={classes["form"]}>

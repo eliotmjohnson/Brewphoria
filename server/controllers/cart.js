@@ -1,20 +1,72 @@
-const { User } = require("../models/user");
+const { Cart } = require("../models/cart");
+const { CartItem } = require("../models/cartItem");
 
 module.exports = {
 	addToCart: async (req, res) => {
-        const data = req.body;
+		const id = req.params.id;
+		const data = req.body;
 
-        const user = await User.findOne({ where: { id: 1 } });
+		const cart = await Cart.findOne({
+			where: {
+				userId: id,
+			},
+		});
 
-        const cart = await user.getCart()
+		const [item] = await cart.getCartItems({
+			where: {
+				drink_id: +data.id,
+			},
+		});
 
-        const items = await cart.addCartItem()
-        // await cart.createCartItem({
-        //     drink_id: data.id,
-        //     name: data.name,
-        //     picture: data.picture,
-        //     price: data.price,
-        //     quantity: data.quantity,
-        // })
+		if (!item) {
+			await cart.createCartItem({
+				drink_id: data.id,
+				name: data.name,
+				picture: data.picture,
+				price: data.price,
+				quantity: data.quantity,
+			});
+		} else {
+			await item.update({
+				quantity: item.quantity + data.quantity,
+			});
+		}
+		res.sendStatus(200);
+	},
+
+	getCart: async (req, res) => {
+		const id = req.params.id;
+
+		const cart = await Cart.findOne({
+			where: {
+				userId: id,
+			},
+		});
+
+		const items = await cart.getCartItems({
+			order: [["name", "ASC"]],
+		});
+
+		res.status(200).send(items);
+	},
+
+	updateCart: async (req, res) => {
+		const { id, quantity } = req.body;
+
+		const item = await CartItem.findOne({
+			where: {
+				id: id,
+			},
+		});
+
+		if (quantity === 0) {
+			await item.destroy();
+		}
+
+		item.update({
+			quantity: quantity,
+		});
+
+		res.sendStatus(200);
 	},
 };

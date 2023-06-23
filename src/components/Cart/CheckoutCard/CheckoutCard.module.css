@@ -1,0 +1,39 @@
+.CartCard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    background-color: aliceblue;
+    width: 85%;
+    padding: .7rem;
+    border-radius: 1rem;
+    box-shadow: 0 .2rem .5rem -.1rem rgb(128, 128, 128);
+}
+
+.CartCard>img {
+    border-radius: .5rem;
+    height: 3rem;
+}
+
+.CartCard>h1 {
+    color: red;
+    width: 6rem;
+    font-size: 1.1rem;
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(104, 135, 250);
+    padding: .3rem;
+    height: 1.5rem;
+    width: 4rem;
+    border-radius: 5rem;
+    box-shadow: 0 .2rem .5rem -.1rem rgb(133, 133, 133);
+}
+
+.counter>span {
+    color: aliceblue;
+    font-size: 1rem;
+}
