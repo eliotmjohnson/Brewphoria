@@ -296,3 +296,13 @@
 .checkout-form>input:focus {
     outline: 2px solid red;
 }
+
+.invalidButton {
+    cursor: default;
+    background-color: rgb(255, 0, 0, .4);
+}
+
+.invalidButton:hover {
+    cursor: default;
+    background-color: rgb(255, 0, 0, .4);
+}

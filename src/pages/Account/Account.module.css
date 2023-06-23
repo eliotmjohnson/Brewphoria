@@ -87,6 +87,7 @@
     left: 0;
     height: 100%;
     width: 100%;
+    overflow: hidden;
 }
 
 .backgroundLogo {
@@ -94,7 +95,7 @@
     rotate: 10deg;
     position: absolute;
     opacity: .15;
-    bottom: -7rem;
+    bottom: -7.5rem;
     left: 9rem;
     z-index: 0;
 }

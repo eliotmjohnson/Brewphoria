@@ -4,6 +4,7 @@ import CartCard from "./CartCard/CartCard";
 import CheckoutCard from "./CheckoutCard/CheckoutCard";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
+import * as Yup from "yup";
 import AuthContext from "../../state/authContext";
 import { useSelector, useDispatch } from "react-redux";
 import { cartActions } from "../../state/slices/cartSlice";
@@ -64,13 +65,21 @@ const Cart = ({ active, setActive }) => {
 		address: "",
 	};
 
+	const cartValidationSchema = Yup.object().shape({
+		orderName: Yup.string().trim().required("Order name required"),
+		date: Yup.string().trim().required("Date required"),
+		time: Yup.string().trim().required("Time required"),
+		address: Yup.string().trim().required("address required"),
+	});
+
 	const handleSubmit = (values, { resetForm }) => {
 		setCheckingOut((prev) => true);
+
 		const data = {
-			orderName: values.orderName,
+			orderName: values.orderName.trim(),
 			date: values.date,
 			time: values.time,
-			address: values.address,
+			address: values.address.trim(),
 			items: cartItems,
 			total: +finalTotal.toFixed(2),
 		};
@@ -200,8 +209,13 @@ const Cart = ({ active, setActive }) => {
 							);
 						})}
 					</div>
-					<Formik initialValues={initialValues} onSubmit={handleSubmit}>
-						{() => {
+					<Formik
+						initialValues={initialValues}
+						onSubmit={handleSubmit}
+						validationSchema={cartValidationSchema}
+						validateOnMount
+					>
+						{({ isValid }) => {
 							return (
 								<Form className={classes["form-container"]}>
 									<h1 className={classes["checkout-title"]}>
@@ -257,7 +271,12 @@ const Cart = ({ active, setActive }) => {
 													.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
 											</p>
 										</span>
-										<button type="submit" className={classes["add-button"]}>
+										<button
+											type="submit"
+											className={`${classes["add-button"]} ${
+												!isValid ? classes.invalidButton : ""
+											}`}
+										>
 											{checkingOut ? "Booking..." : "Book Order"}
 										</button>
 									</div>

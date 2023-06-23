@@ -50,6 +50,7 @@ export const AuthContextProvider = (props) => {
 			}
 
 			logoutTimer = setTimeout(logout, remainingTime);
+
 			setToken(storedToken);
 			setUserId(id);
 			setUsername(username);
