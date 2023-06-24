@@ -27,6 +27,11 @@
     border: none;
 }
 
+.input>input::-moz-placeholder{
+    color: aliceblue;
+    opacity: 1;
+}
+
 .Input>input::placeholder {
     color: aliceblue;
 }
