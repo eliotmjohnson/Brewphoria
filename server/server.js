@@ -43,7 +43,7 @@ require("./routes/routes")(app);
 
 // Database and Server
 const { PORT } = process.env;
-// ViteExpress.config({ mode: "production" })
+ViteExpress.config({ mode: "production" });
 
 sequelize
 	.sync()
