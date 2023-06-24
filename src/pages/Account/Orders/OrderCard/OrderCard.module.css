@@ -47,7 +47,8 @@
 
 .top-details>hr {
     height: 6rem;
-    border-color: rgb(255, 123, 123);
+    border: 0;
+    border: 1px solid red;
 }
 
 .top-details>button {
@@ -132,7 +133,8 @@
 
 .sub-details>span>hr {
     height: 100%;
-    border-color: red;
+    border: 0;
+    border: 1px red solid;
 }
 
 .sub-details>span>h1 {
@@ -146,6 +148,7 @@
 
 .sub-details>hr {
     width: 100%;
-    border-color: rgb(104, 135, 250);
+    border: 0;
+    border: 1px solid rgb(104, 135, 250);
     border-width: 1px;
 }

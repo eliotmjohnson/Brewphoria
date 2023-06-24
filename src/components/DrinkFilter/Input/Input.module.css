@@ -27,7 +27,12 @@
     border: none;
 }
 
-.input>input::-moz-placeholder{
+.Input>input:-moz-placeholder {
+    color: aliceblue;
+    opacity: 1;
+}
+
+.Input>input::-moz-placeholder {
     color: aliceblue;
     opacity: 1;
 }

@@ -20,6 +20,8 @@
 }
 
 .FilterCategory>hr {
+    border: 0;
+    border: solid 1px aliceblue;
     width: 100%;
     margin: 0;
     cursor: pointer;
