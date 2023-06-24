@@ -14,7 +14,7 @@ const { Order } = require("./models/order");
 
 // Express
 const app = express();
-ViteExpress.config({ mode: "production" })
+// ViteExpress.config({ mode: "production" })
 
 // Middleware
 app.use(express.json());
