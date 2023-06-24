@@ -14,7 +14,6 @@ const { Order } = require("./models/order");
 
 // Express
 const app = express();
-// ViteExpress.config({ mode: "production" })
 
 // Middleware
 app.use(express.json());
@@ -44,6 +43,7 @@ require("./routes/routes")(app);
 
 // Database and Server
 const { PORT } = process.env;
+// ViteExpress.config({ mode: "production" })
 
 sequelize
 	.sync()
