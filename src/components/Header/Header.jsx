@@ -40,9 +40,9 @@ const Header = () => {
 			</h1>
 			<img className={classes.logo} src={logo}></img>
 			<NavLinks onClick={headerClick} inView={inView} />
-			<div className={classes["logo-container"]} onClick={goToAccount}>
-				<img id={classes["account-logo"]} src={accountLogo} />
-				<h4>{username ? `${firstName} ${lastName}` : "Sign In"}</h4>
+			<div className={classes["logo-container"]}>
+				<img id={classes["account-logo"]} src={accountLogo} onClick={goToAccount} />
+				<h4 onClick={goToAccount}>{username ? `${firstName} ${lastName}` : "Sign In"}</h4>
 			</div>
 			<HiddenHeader
 				inView={inView}

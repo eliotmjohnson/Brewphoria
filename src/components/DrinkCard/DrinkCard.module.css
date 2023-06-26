@@ -3,7 +3,7 @@
     margin: 3rem;
     margin-bottom: 1rem;
     border-radius: 2rem;
-    height: 38rem;
+    height: 39.5rem;
     width: 20rem;
     box-shadow: 0 0 3rem 0 rgb(0, 0, 0);
     transition: transform 0.8s;
@@ -39,7 +39,6 @@
     height: 100%;
     background-color: aliceblue;
     border-radius: 2rem;
-    padding-top: 1.5rem;
     box-shadow: inset 0 0 .2rem 0 black;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -50,6 +49,7 @@
 .inner>img {
     max-width: 70%;
     min-height: 0;
+    margin-top: 1.5rem;
     border-radius: 1rem;
     box-shadow: 0 .2rem .5rem -.1rem rgb(133, 133, 133);
 }
@@ -194,7 +194,6 @@
     top: 0;
     width: 100%;
     height: 100%;
-    padding-top: 1.5rem;
     background-color: aliceblue;
     box-shadow: inset 0 0 .2rem 0 black;
     -webkit-backface-visibility: hidden;
