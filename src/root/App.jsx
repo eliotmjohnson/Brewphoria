@@ -1,7 +1,9 @@
+import "./normalize.css";
 import "./reset.css";
 import "./App.css";
 import { AuthContextProvider } from "../state/authContext";
 import { Provider } from "react-redux";
+import { useMediaQuery } from "@uidotdev/usehooks";
 import store from "../state/store";
 import {
 	createBrowserRouter,
@@ -18,6 +20,7 @@ import Account from "../pages/Account/Account";
 import Profile from "../pages/Account/Profile/Profile";
 import Orders from "../pages/Account/Orders/Orders";
 import Favorites from "../pages/Account/Favorites/Favorites";
+import DevelopmentPage from "../pages/DevelopmentPage/DevelopmentPage";
 
 const router = createBrowserRouter([
 	{
@@ -77,10 +80,16 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
+	const isMobileDevice = useMediaQuery("screen and (max-width: 1200px)");
+
 	return (
 		<AuthContextProvider>
 			<Provider store={store}>
-				<RouterProvider router={router} />
+				{isMobileDevice ? (
+					<DevelopmentPage />
+				) : (
+					<RouterProvider router={router} />
+				)}
 			</Provider>
 		</AuthContextProvider>
 	);

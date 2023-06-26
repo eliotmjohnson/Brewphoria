@@ -1,7 +1,7 @@
 import classes from "./Home.module.css";
-import drinkOne from "../../assets/Images/paige-ledford-qhfe60zL8-Q-unsplash.jpg";
-import drinkTwo from "../../assets/Images/kim-daniels-p6XuDW03YjE-unsplash.jpg";
-import drinkThree from "../../assets/Images/adam-jaime-dmkmrNptMpw-unsplash.jpg";
+import drinkOne from "../../assets/Images/optimized/homeOne.jpg";
+import drinkTwo from "../../assets/Images/optimized/homeTwo.jpg";
+import drinkThree from "../../assets/Images/optimized/homeThree.jpg";
 import CateringAd from "../../components/CateringAd/CateringAd";
 import AuthContext from "../../state/authContext";
 import { useContext } from "react";

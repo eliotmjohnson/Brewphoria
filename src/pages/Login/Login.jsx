@@ -9,7 +9,7 @@ import firstNameLogo from "../../assets/Images/icons8-name-tag-100.png";
 import lastNameLogo from "../../assets/Images/icons8-name-tag-outline.png";
 import userLogo from "../../assets/Images/icons8-username-100.png";
 import passwordLogo from "../../assets/Images/icons8-password-500.png";
-import drinkBg from "../../assets/Images/ash-edmonds-DhHMOrQd7jE-unsplash.jpg";
+import drinkBg from "../../assets/Images/optimized/loginBg.jpg";
 import logo from "../../assets/Images/drinks.svg";
 
 const Login = () => {

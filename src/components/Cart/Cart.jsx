@@ -120,75 +120,77 @@ const Cart = ({ active, setActive }) => {
 					checkout ? classes.checkoutActive : ""
 				}`}
 			>
-				<h1>Your Cart</h1>
-				<div className={classes["card-container"]}>
-					{cartItems.length === 0 ? (
-						<h1
-							style={{
-								color: "rgb(104, 135, 250)",
-								fontSize: "3rem",
-								textAlign: "center",
-								translate: "0 5rem",
-								padding: "1rem",
-							}}
+				<div className={classes.checkoutOne}>
+					<h1>Your Cart</h1>
+					<div className={classes["card-container"]}>
+						{cartItems.length === 0 ? (
+							<h1
+								style={{
+									color: "rgb(104, 135, 250)",
+									fontSize: "3rem",
+									textAlign: "center",
+									translate: "0 5rem",
+									padding: "1rem",
+								}}
+							>
+								You have nothing in the cart!
+							</h1>
+						) : (
+							cartItems.map((item) => {
+								return (
+									<CartCard
+										key={item.drink_id}
+										dbId={item.id}
+										drinkId={item.drink_id}
+										name={item.name}
+										picture={item.picture}
+										price={item.price}
+										quantity={item.quantity}
+										setUpdating={setUpdating}
+									/>
+								);
+							})
+						)}
+					</div>
+					<div className={classes["total"]}>
+						<span>
+							<h2>Sub-Total</h2>
+							<p>
+								${" "}
+								{subTotal
+									.toFixed(2)
+									.toString()
+									.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+							</p>
+						</span>
+						<span>
+							<h3>Catering Fees</h3>
+							<p>
+								${" "}
+								{fees
+									.toFixed(2)
+									.toString()
+									.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+							</p>
+						</span>
+						<span>
+							<h1>Total</h1>
+							<p>
+								${" "}
+								{finalTotal
+									.toFixed(2)
+									.toString()
+									.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+							</p>
+						</span>
+						<button
+							className={classes["add-button"]}
+							onClick={goToCheckout}
+							disabled={cartItems.length === 0}
 						>
-							You have nothing in the cart!
-						</h1>
-					) : (
-						cartItems.map((item) => {
-							return (
-								<CartCard
-									key={item.drink_id}
-									dbId={item.id}
-									drinkId={item.drink_id}
-									name={item.name}
-									picture={item.picture}
-									price={item.price}
-									quantity={item.quantity}
-									setUpdating={setUpdating}
-								/>
-							);
-						})
-					)}
-				</div>
-				<div className={classes["total"]}>
-					<span>
-						<h2>Sub-Total</h2>
-						<p>
-							${" "}
-							{subTotal
-								.toFixed(2)
-								.toString()
-								.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-						</p>
-					</span>
-					<span>
-						<h3>Catering Fees</h3>
-						<p>
-							${" "}
-							{fees
-								.toFixed(2)
-								.toString()
-								.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-						</p>
-					</span>
-					<span>
-						<h1>Total</h1>
-						<p>
-							${" "}
-							{finalTotal
-								.toFixed(2)
-								.toString()
-								.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-						</p>
-					</span>
-					<button
-						className={classes["add-button"]}
-						onClick={goToCheckout}
-						disabled={cartItems.length === 0}
-					>
-						{updating ? "Updating..." : "Checkout"}
-					</button>
+							{updating ? "Updating..." : "Checkout"}
+						</button>
+					</div>
 				</div>
 				<button className={classes["edit-cart"]} onClick={editCart}>
 					<p>&#8250;</p>

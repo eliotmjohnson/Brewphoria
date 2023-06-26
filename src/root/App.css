@@ -6,7 +6,7 @@
 * {
     cursor: default;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: auto;
+    -moz-osx-font-smoothing: grayscale;
     font-family: lobster;
 }
 

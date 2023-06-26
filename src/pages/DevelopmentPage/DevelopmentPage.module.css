@@ -1,0 +1,68 @@
+.DevelopmentPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to top, rgb(0, 0, 0), transparent), url("../../assets/Images/optimized/loginBg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.DevelopmentPage>section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    justify-content: center;
+    border: 2px solid red;
+    border-radius: 2rem;
+    padding: 2rem;
+    margin: 1.5rem;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+}
+
+.title>h1 {
+    font-size: 4rem;
+    color: red;
+}
+
+.title>img {
+    height: 4rem;
+    filter: invert(99%) sepia(99%) saturate(0%) hue-rotate(289deg) brightness(104%) contrast(101%);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.content>h2 {
+    color: aliceblue;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.content>p {
+    color: red;
+    font-size: 1.8rem;
+    max-width: 30rem;
+    line-height: 2.1rem;
+    text-align: center;
+    text-shadow: 0 0 .8rem red, 0 0 3rem black;
+}

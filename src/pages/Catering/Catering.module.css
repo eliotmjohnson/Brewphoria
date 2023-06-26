@@ -149,7 +149,7 @@
 .screenshot {
     background-image:
         linear-gradient(to right, rgb(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%),
-        url('../../assets/Images/Screenshot 2023-06-19 at 1.26.07 PM.png');
+        url('../../assets/Images/optimized/cateringSSOne.png');
     height: clamp(0rem, 40vw, 50rem);
     min-width: clamp(0rem, 69vw, 90rem);
     translate: 3rem;
@@ -164,7 +164,7 @@
 .screenshot2 {
     background-image:
         linear-gradient(to left, rgb(0, 0, 0, 0) 0%, rgb(0, 0, 0, .95) 80%),
-        url('../../assets/Images/Screenshot2.png');
+        url('../../assets/Images/optimized/cateringSSTwo.png');
     height: clamp(0rem, 40vw, 50rem);
     min-width: clamp(0rem, 75vw, 90rem);
     translate: 3rem;

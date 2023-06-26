@@ -5,7 +5,7 @@
     padding: 2rem;
     padding-top: 1rem;
     background-color: red;
-    height: 48rem;
+    height: calc(100vh - 11rem);
     width: 18rem;
     margin: 5rem;
     margin-bottom: .5rem;
@@ -38,7 +38,8 @@
 }
 
 .form {
-    height: 41rem;
+    /* height: 41rem; */
+    height: calc(100vh - 18rem);
     padding-bottom: 1rem;
     overflow-y: scroll;
     -ms-overflow-style: none;

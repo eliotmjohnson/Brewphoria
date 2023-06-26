@@ -1,7 +1,7 @@
 import classes from "./Catering.module.css";
-import drinkBg from "../../assets/Images/stanislav-ivanitskiy-j5SwUbcgeyA-unsplash.jpg";
+import drinkBg from "../../assets/Images/optimized/cateringOne.jpg";
 import expBg from "../../assets/Images/richard-horvath-is8jWT-mvng-unsplash.jpg";
-import secondBg from "../../assets/Images/johann-trasch-b-3uxA93zUc-unsplash.jpg";
+import secondBg from "../../assets/Images/optimized/cateringTwo.jpg";
 import AuthContext from "../../state/authContext";
 import { useInView } from "react-intersection-observer";
 import { useNavigate } from "react-router-dom";

@@ -1,11 +1,12 @@
 import classes from "./DrinksPage.module.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useMediaQuery } from "@uidotdev/usehooks";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import DrinkFilter from "../../components/DrinkFilter/DrinkFilter";
 import cart from "../../assets/Images/icons8-cart-100.png";
-import drinkBackground from "../../assets/Images/moritz-mentges-Z40sav8IYqQ-unsplash.jpg";
+import drinkBackground from "../../assets/Images/optimized/drinksPage.jpg";
 import Cart from "../../components/Cart/Cart";
 import DrinkCard from "../../components/DrinkCard/DrinkCard";
 import { cartActions } from "../../state/slices/cartSlice";
@@ -13,6 +14,8 @@ import Loader from "../../components/Loader/Loader";
 
 const DrinksPage = () => {
 	const dispatch = useDispatch();
+	const pageSmall = useMediaQuery("screen and (max-width: 1375px)");
+	const pageMedium = useMediaQuery("screen and (max-width: 1775px)");
 	const [isVisible, setIsVisible] = useState(false);
 	const [pageLocation, setPageLocation] = useState(0);
 	const { setCartOpen } = cartActions;
@@ -47,7 +50,7 @@ const DrinksPage = () => {
 	const goNext = () => {
 		if (Math.ceil(drinks.length / 6) * 78 > pageLocation + 78) {
 			setPageLocation((prev) => {
-				return prev + 78;
+				return prev + (pageSmall ? 26 : pageMedium ? 52 : 78);
 			});
 		}
 	};
@@ -55,7 +58,7 @@ const DrinksPage = () => {
 	const goBack = () => {
 		if (pageLocation !== 0) {
 			setPageLocation((prev) => {
-				return prev - 78;
+				return prev - (pageSmall ? 26 : pageMedium ? 52 : 78);
 			});
 		}
 	};
@@ -77,10 +80,6 @@ const DrinksPage = () => {
 			style={{ opacity: isVisible ? 1 : 0 }}
 		>
 			<Cart active={active} setActive={setActive} />
-			<button className={classes["cart-button"]} onClick={openCart}>
-				<img src={cart} />
-				Cart
-			</button>
 			<div className={classes.wrapper}>
 				<img className={classes.background} src={drinkBackground} />
 			</div>
@@ -88,6 +87,10 @@ const DrinksPage = () => {
 				<p>Check out</p>
 				our
 				<strong>Drinks</strong>
+				<button className={classes["cart-button"]} onClick={openCart}>
+					<img src={cart} />
+					Cart
+				</button>
 			</h1>
 			<section>
 				<DrinkFilter
@@ -102,7 +105,9 @@ const DrinksPage = () => {
 				/>
 				<div
 					className={classes["drinks-container"]}
-					style={{ backdropFilter: isVisible ? "blur(6px)" : "blur(0px)" }}
+					style={{
+						backdropFilter: isVisible ? "blur(6px)" : "blur(0px)",
+					}}
 				>
 					<div
 						className={classes.pagination}
@@ -179,7 +184,7 @@ const DrinksPage = () => {
 									</h1>
 								);
 							} else if (drinks[0].name) {
-								return drinks.map((drink) => {
+								return drinks.map((drink, i) => {
 									return (
 										<DrinkCard
 											key={drink.id}

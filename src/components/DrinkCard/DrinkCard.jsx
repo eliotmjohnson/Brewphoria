@@ -175,7 +175,10 @@ const DrinkCard = ({ name, picture, price, id, style, inList }) => {
 			id="card"
 			style={{ ...style, display: display ? "initial" : "none" }}
 		>
-			<div className={classes.inner}>
+			<div
+				className={classes.inner}
+				style={{ boxShadow: inList ? "none" : "" }}
+			>
 				<img src={picture} />
 				<h1>{name}</h1>
 				<p>$ {price}.99</p>
@@ -209,7 +212,10 @@ const DrinkCard = ({ name, picture, price, id, style, inList }) => {
 					</h1>
 				</div>
 			</div>
-			<div className={classes.outer}>
+			<div
+				className={classes.outer}
+				style={{ boxShadow: inList ? "none" : "" }}
+			>
 				<h1>{drinkData ? drinkData.strDrink : ""}</h1>
 				<div className={classes["recipe-container"]}>
 					<section className={classes.ingredients}>

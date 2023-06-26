@@ -72,6 +72,7 @@
     position: relative;
     background-color: aliceblue;
     height: 100%;
+    width: 60rem;
     box-shadow: inset .5rem 0 .5rem -.4rem rgb(122, 122, 122);
     border-bottom-right-radius: 1rem;
     border-top-right-radius: 1rem;
@@ -98,4 +99,10 @@
     bottom: -7.5rem;
     left: 9rem;
     z-index: 0;
+}
+
+@media screen and (max-width: 1300px) {
+    .content {
+        width: 52rem;
+    }
 }
