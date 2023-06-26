@@ -150,6 +150,16 @@
     cursor: text;
 }
 
+.inputs:-moz-placeholder {
+    color: rgb(61, 61, 61);
+    opacity: 1;
+}
+
+.inputs::-moz-placeholder {
+    color: rgb(61, 61, 61);
+    opacity: 1;
+}
+
 .inputs::placeholder {
     color: rgb(61, 61, 61);
 }
