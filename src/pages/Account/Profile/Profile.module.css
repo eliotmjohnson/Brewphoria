@@ -206,8 +206,10 @@
     cursor: pointer;
     margin: .5rem;
     border-radius: .25rem;
+    padding: 0;
     width: 13rem;
     height: 4rem;
+    font-weight: 100;
     box-shadow: 0 .2rem .5rem -.1rem rgb(60, 60, 60);
     transition: color .15s linear, background-color .15s linear;
 }
@@ -245,6 +247,7 @@
     margin: .5rem;
     position: absolute;
     border-radius: .4rem;
+    padding: 0;
     top: 25rem;
     right: 1rem;
     width: 10rem;

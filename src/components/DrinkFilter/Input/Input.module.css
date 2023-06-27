@@ -21,6 +21,7 @@
     width: 10rem;
     text-indent: 5px;
     cursor: text;
+    padding: 0;
     outline: none;
     color: aliceblue;
     background-color: transparent;

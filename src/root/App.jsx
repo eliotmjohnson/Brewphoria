@@ -110,7 +110,7 @@ const App = () => {
 			</Provider>
 			<Helmet>
 				{!check() ? (
-					<meta name="viewport" content="width=1225" />
+					<meta name="viewport" content="width=1225, height=1000" />
 				) : (
 					<meta
 						name="viewport"

@@ -29,7 +29,21 @@ const DrinkFilter = ({ style, startPage, setOptimize }) => {
 			})
 			.then((res) => {
 				dispatch(favoritesActions.setFavorites(res.data.items));
-				dispatch(drinksActions.setDrinksArr(res.data.randomArr));
+
+				let safariAgent = navigator.userAgent.indexOf("Safari") > -1;
+				let chromeAgent = navigator.userAgent.indexOf("Chrome") > -1;
+
+				if (chromeAgent && safariAgent) {
+					safariAgent = false;
+				}
+
+				if (safariAgent) {
+					const newArr = res.data.randomArr.slice(0, 25);
+					dispatch(drinksActions.setDrinksArr(newArr));
+				} else {
+					dispatch(drinksActions.setDrinksArr(res.data.randomArr));
+				}
+
 				dispatch(drinksActions.setLoading(false));
 				setTimeout(() => {
 					setOptimize((prev) => true);
