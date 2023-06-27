@@ -5,6 +5,8 @@ import axios from "axios";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import AuthContext from "../../state/authContext";
+import closedEye from "../../assets/Images/icons8-closed-eye-100.png";
+import openEye from "../../assets/Images/icons8-eye-100.png";
 import firstNameLogo from "../../assets/Images/icons8-name-tag-100.png";
 import lastNameLogo from "../../assets/Images/icons8-name-tag-outline.png";
 import userLogo from "../../assets/Images/icons8-username-100.png";
@@ -15,6 +17,7 @@ import logo from "../../assets/Images/drinks.svg";
 const Login = () => {
 	const [register, setRegister] = useState(false);
 	const [isVisible, setIsVisible] = useState(false);
+	const [passVisible, setPassVisible] = useState(false);
 	const authContext = useContext(AuthContext);
 	const [error, setError] = useState();
 	const navigate = useNavigate();
@@ -109,6 +112,11 @@ const Login = () => {
 					setSubmitting(false);
 				}, 3000);
 			});
+	};
+
+	const togglePassVisibility = (e) => {
+		e.stopPropagation();
+		setPassVisible((prev) => !prev);
 	};
 
 	return (
@@ -215,11 +223,16 @@ const Login = () => {
 											src={passwordLogo}
 										/>
 										<Field
-											type="password"
+											type={passVisible ? "text" : "password"}
 											name="password"
 											autoComplete="off"
 											className={classes.inputs}
 											placeholder={"Password"}
+										/>
+										<img
+											src={passVisible ? closedEye : openEye}
+											className={classes.eyeball}
+											onClick={(e) => togglePassVisibility(e)}
 										/>
 										<ErrorMessage
 											name="password"

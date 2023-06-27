@@ -74,6 +74,7 @@
     padding-top: 1rem;
     padding-bottom: 1rem;
     width: 20rem;
+    overflow: hidden;
 }
 
 .login-form>span.invalid {
@@ -230,4 +231,19 @@
 .errorAnimation {
     animation-name: error-animation;
     animation-duration: .9s;
+}
+
+.eyeball {
+    height: 3rem;
+    cursor: pointer;
+    position: absolute;
+    right: 0rem;
+    border-left: 2px solid aliceblue;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    padding-top: 1.4rem;
+    padding-bottom: 1.4rem;
+    border-bottom-left-radius: 3rem;
+    border-top-left-radius: 3rem;
+    box-shadow: 0 0 .8rem 0 rgb(30, 30, 30);
 }

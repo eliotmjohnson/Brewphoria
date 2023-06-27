@@ -299,8 +299,16 @@
     cursor: pointer;
 }
 
+.checkout-form>input[type="date"] {
+    height: 2rem;
+}
+
 .checkout-form>input[type="time"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
+}
+
+.checkout-form>input[type="time"] {
+    height: 2rem;
 }
 
 .checkout-form>input:focus {
