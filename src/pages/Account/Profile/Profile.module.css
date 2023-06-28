@@ -144,6 +144,7 @@
     width: 15rem;
     font-size: 1.8rem;
     text-indent: 7px;
+    line-height: 3rem;
     color: rgb(239, 247, 255);
     background-color: rgb(159, 143, 143, 0);
     border: none;
@@ -349,4 +350,33 @@
 .modal-buttons>button.no:hover {
     color: red;
     background-color: aliceblue;
+}
+
+.eyeballCont {
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    height: 2.5rem;
+    border-radius: 4rem;
+    padding: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 2rem;
+    overflow: hidden;
+}
+
+.eyeball {
+    height: 2rem;
+    cursor: pointer;
+    position: absolute;
+    right: 0rem;
+    border-left: 2px solid aliceblue;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    padding-top: 1.4rem;
+    padding-bottom: 1.4rem;
+    border-bottom-left-radius: 3rem;
+    border-top-left-radius: 3rem;
+    box-shadow: 0 0 .8rem 0 rgb(30, 30, 30);
 }

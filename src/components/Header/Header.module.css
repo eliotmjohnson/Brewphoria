@@ -56,16 +56,65 @@
     cursor: pointer;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 1000px) {
     .header-logo {
-        display: none;
+        height: 2rem;
+    }
+
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        width: 100%;
+        border: initial;
+        border-radius: initial;
+        justify-content: space-between;
+        align-items: center;
+        background-color: red;
+        border-bottom: 1px solid aliceblue;
+        height: 1vh;
+        z-index: 5;
+    }
+
+    .header>h1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        translate: -.5rem 0;
+        margin: auto;
+        font-size: 2rem;
+        color: aliceblue;
+        padding-left: 0rem;
+        z-index: 1;
     }
 
     .logo {
-        height: 20rem;
-        opacity: .4;
-        position: absolute;
-        left: 2rem;
-        transform: rotate(10deg);
+        height: 6rem;
+        right: 9rem;
+        bottom: -1rem;
+    }
+
+    .logo-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: static;
+        right: 0;
+        padding-right: 0;
+        width: auto;
+        z-index: 0;
+    }
+
+    .logo-container>h4 {
+        color: aliceblue;
+        font-size: .8rem;
+        width: 9rem;
+    }
+
+    #account-logo {
+        cursor: pointer;
+        height: 2.5rem;
     }
 }

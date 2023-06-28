@@ -229,11 +229,13 @@ const Login = () => {
 											className={classes.inputs}
 											placeholder={"Password"}
 										/>
-										<img
-											src={passVisible ? closedEye : openEye}
-											className={classes.eyeball}
-											onClick={(e) => togglePassVisibility(e)}
-										/>
+										<div className={classes.eyeballCont}>
+											<img
+												src={passVisible ? closedEye : openEye}
+												className={classes.eyeball}
+												onClick={(e) => togglePassVisibility(e)}
+											/>
+										</div>
 										<ErrorMessage
 											name="password"
 											className={classes["error-message"]}

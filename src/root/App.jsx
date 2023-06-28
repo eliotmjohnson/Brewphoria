@@ -82,6 +82,7 @@ const router = createBrowserRouter([
 
 const App = () => {
 	const isMobileDevice = useMediaQuery("screen and (max-width: 1200px)");
+	// const isMobileDevice = useMediaQuery("screen and (max-width: 100px)");
 
 	const check = () => {
 		// let check = false;

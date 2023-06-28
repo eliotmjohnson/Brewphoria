@@ -2,6 +2,8 @@ import classes from "./Profile.module.css";
 import axios from "axios";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import closedEye from "../../../assets/Images/icons8-closed-eye-100.png";
+import openEye from "../../../assets/Images/icons8-eye-100.png";
 import { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import AuthContext from "../../../state/authContext";
@@ -14,6 +16,8 @@ const Profile = () => {
 		error: false,
 		feedback: "",
 	});
+	const [newPassVisible, setNewPassVisible] = useState(false);
+	const [oldPassVisible, setOldPassVisible] = useState(false);
 	const [deleteAccount, setDeleteAccount] = useState(false);
 	const navigate = useNavigate();
 	const { id } = useParams();
@@ -138,6 +142,15 @@ const Profile = () => {
 			.catch((error) => console.log(error));
 	};
 
+	const togglePassVisibility = (e) => {
+		e.stopPropagation();
+		if (e.target.id === "oldPass") {
+			setOldPassVisible((prev) => !prev);
+		} else {
+			setNewPassVisible((prev) => !prev);
+		}
+	};
+
 	return (
 		<div className={classes.profile}>
 			<div>
@@ -198,12 +211,20 @@ const Profile = () => {
 											}
 										>
 											<Field
-												type="password"
+												type={oldPassVisible ? "text" : "password"}
 												autoComplete="off"
 												className={classes.inputs}
 												name="oldPassword"
 												placeholder="Old Password"
 											/>
+											<div className={classes.eyeballCont}>
+												<img
+													src={oldPassVisible ? closedEye : openEye}
+													className={classes.eyeball}
+													id="oldPass"
+													onClick={(e) => togglePassVisibility(e)}
+												/>
+											</div>
 											<ErrorMessage
 												name="oldPassword"
 												className={classes["error-message"]}
@@ -220,12 +241,20 @@ const Profile = () => {
 											}
 										>
 											<Field
-												type="password"
+												type={newPassVisible ? "text" : "password"}
 												autoComplete="off"
 												className={classes.inputs}
 												name="newPassword"
 												placeholder="New Password"
 											/>
+											<div className={classes.eyeballCont}>
+												<img
+													src={newPassVisible ? closedEye : openEye}
+													className={classes.eyeball}
+													id="newPass"
+													onClick={(e) => togglePassVisibility(e)}
+												/>
+											</div>
 											<ErrorMessage
 												name="newPassword"
 												className={classes["error-message"]}

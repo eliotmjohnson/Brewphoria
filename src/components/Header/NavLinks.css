@@ -110,6 +110,7 @@
     background-color: aliceblue;
     z-index: 2;
     overflow: hidden;
+    padding-bottom: .5rem;
     transition: translate .5s;
 }
 
@@ -117,7 +118,7 @@
     font-size: 1.5rem;
     position: absolute;
     right: .7rem;
-    top: .7rem;
+    top: 1.2rem;
     cursor: pointer;
     color: aliceblue;
     background-color: black;
@@ -132,6 +133,8 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    translate: -.8rem 0;
+    margin-bottom: 3rem;
     color: red;
     margin-top: 3rem;
 }
@@ -192,11 +195,7 @@
     translate: 0;
 }
 
-@media only screen and (max-width: 900px) {
-    .nav-slideout {
-        display: flex;
-    }
-
+@media only screen and (max-width: 1000px) {
     .nav-bar {
         display: none;
     }
@@ -215,21 +214,19 @@
         transform: rotate(0);
         width: 30px;
     }
-}
 
-@media only screen and (max-width: 500px) {
     .burger {
-        padding: .5rem;
+        padding: 0;
         padding-left: 0;
-        margin-left: 1rem;
+        margin-left: 0;
         box-shadow: none;
-        padding-right: 3rem;
+        padding-right: 0;
         box-sizing: border-box;
-        z-index: 1;
+        z-index: 0;
     }
 
     .nav-slideout {
-        width: 100%;
+        display: flex;
         gap: 1rem;
     }
 
@@ -239,5 +236,11 @@
 
     .logo-overlay {
         opacity: .3;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .nav-slideout {
+        width: 100%;
     }
 }

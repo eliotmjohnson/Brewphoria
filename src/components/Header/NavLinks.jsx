@@ -49,7 +49,7 @@ const NavLinks = ({ inView }) => {
 			setBottomBurgerActive("");
 			setMiddleBurgerActive("");
 			setNavBarActive("");
-		} else if (e.target.text === "Drinks/Recipes") {
+		} else if (e.target.text === "Drinks/Recipes" | e.target.text === "Drinks") {
 			if (username) {
 				navigate("/drinks");
 				setTopBurgerActive("");
@@ -89,9 +89,8 @@ const NavLinks = ({ inView }) => {
 					<img src={drinks} />
 				</h1>
 				<nav>
-					<a href="">Drinks</a>
-					<a href="">Recipes</a>
-					<a href="">Catering</a>
+					<a onClick={(e) => handleClick(e)}>Catering</a>
+					<a onClick={(e) => handleClick(e)}>Drinks</a>
 				</nav>
 				<img className="logo-overlay" src={drinks} />
 			</div>
