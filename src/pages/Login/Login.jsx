@@ -157,7 +157,7 @@ const Login = () => {
 												<Field
 													type="text"
 													name="firstName"
-													autoComplete="off"
+													autoComplete="stop-it"
 													className={classes.inputs}
 													placeholder={"First Name"}
 												/>

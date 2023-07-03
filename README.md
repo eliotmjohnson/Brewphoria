@@ -28,3 +28,15 @@ Brewphoria is an ecommerce website based around a fictitious local brewing compa
 - As the main part of the website, customers can add different drinks to a catering order cart and then checkout and send that order to the company to be fulfilled at a later date. They can add, remove, and change cart items to customize their order.
 
 - Lastly, if customers just want to enjoy looking at the drinks offered and maybe even try making them themselves instead of doing catering, they can add and remove drinks to their favorites list (also stored in the database) through their account.
+
+## Website Link
+
+[Brewphoria](http://3.145.15.71/)
+
+## Screenshots
+
+[Here!](./src/assets/Images/screenshots/)
+
+## Demo Video
+
+[YouTube Link](https://youtu.be/BMFONAqk9_Q)

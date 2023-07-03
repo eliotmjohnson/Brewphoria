@@ -16,6 +16,8 @@
     margin-top: 5rem;
     z-index: 1;
     transition: translate 1s;
+    box-shadow: 0 .2rem 5rem 0 rgb(0, 0, 0);
+    border-radius: 1rem;
 }
 
 .Account::after {
